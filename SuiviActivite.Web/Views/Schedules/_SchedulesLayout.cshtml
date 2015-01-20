@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @Styles.Render("~/Content/schedulescss")
+    @RenderSection("Styles", required: false)
+}
+
+<nav>
+    <ul class="submenu">
+        <li>@Html.ActionMenuLink("Consultation des suivis", "ConsultSchedules", "Schedules")</li>
+        <li>@Html.ActionMenuLink("Ajouter un suivi", "AddSchedule", "Schedules")</li>
+    </ul>
+</nav>
+
+<section>
+    @RenderBody()
+</section>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false);
+}

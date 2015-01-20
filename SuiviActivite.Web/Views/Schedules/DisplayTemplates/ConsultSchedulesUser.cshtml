@@ -1,0 +1,12 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ConsultSchedules.ConsultSchedulesUser
+
+<tr>
+@using (Html.BeginForm("ConsultUserSchedules", "Schedules", new { id = Model.Id }, FormMethod.Get))
+{ 
+    <td>@Model.LastName</td>
+    <td>@Model.FirstName</td>
+    <td>
+        <input @{if(!Model.HasSchedules){ <text>disabled="disabled"</text> } } type="submit" value="Consulter les suivis" />
+    </td>
+}
+</tr>

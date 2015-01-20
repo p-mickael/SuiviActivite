@@ -1,0 +1,20 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ConsultSchedules.ConsultSchedules
+
+@{
+    ViewBag.Title = "Consultations de suivis";
+    Layout = "_SchedulesLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="alternated-rows">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+        </tr>
+    </thead>
+    <tbody>
+        @Html.DisplayFor(m => m.Users)
+    </tbody>
+</table>

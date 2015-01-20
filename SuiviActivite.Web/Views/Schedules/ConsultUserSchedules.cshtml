@@ -1,0 +1,43 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ConsultUserSchedules.ConsultUserSchedules
+
+@{
+    ViewBag.Title = String.Format("Consultation des suivis de {0} {1}", Model.FirstName, Model.LastName);
+    Layout = "_SchedulesLayout.cshtml";
+}
+
+<h2>@Model.FirstName @Model.LastName</h2>
+
+<fieldset>
+    @Html.DisplayFor(m => m.Schedules)
+</fieldset>
+
+<p>
+    @Html.ActionLink("Retour à la liste", "ConsultSchedules", "Schedules")
+</p>
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+
+        var anchor = document.getElementById('@Model.MonthToJumpTo');
+        if(anchor !== null)
+            anchor.scrollIntoView(true);
+
+        $(".displayingHoverMenu").hover(function () {
+            $(this).children(".hoverMenu").show();
+        },
+        function () {
+            $(this).children(".hoverMenu").hide();
+        });
+
+        $(".displayingTitle").click(function () {
+            var dayList = $(this).siblings(".hiddenList");
+
+            if (dayList.is(":visible"))
+                dayList.hide();
+            else
+                dayList.show();
+        });
+    });
+</script>
+}

@@ -1,0 +1,15 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ConsultUserSchedules.ConsultUserSchedulesSchedule
+
+<li class="scheduleCell displayingHoverMenu">
+    <span @if(Model.Error){ <text>class="errorText"</text> }><span class="boldName">Arrivée :</span> @String.Format("{0:HH:mm}", Model.DateLogIn) - <span class="boldName">Départ :</span> @String.Format("{0:HH:mm}", Model.DateLogOut)</span>
+    <span class="hoverMenu">
+        @using (Html.BeginForm("DeleteSchedule", "Schedules", FormMethod.Post))
+        { 
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id, new { @Name = "id" })
+            <input type="hidden" value="@String.Format("{0:MM}{0:yyyy}", Model.DateLogIn)" name="ancor"/>
+            <input type="submit" name="DeleteSchedule" value="Supprimer" />
+            @Html.ActionLink("Modifier", "EditSchedule", "Schedules", new { id = Model.Id }, null)
+        }
+    </span>
+</li>

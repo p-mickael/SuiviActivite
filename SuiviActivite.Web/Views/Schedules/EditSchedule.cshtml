@@ -1,0 +1,61 @@
+﻿@model SuiviActivite.Web.Models.Schedules.EditSchedule.EditSchedule
+@using System.Globalization;
+@{
+    ViewBag.Title = "Edition de suivi";
+    Layout = "_SchedulesLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<div>
+    @Html.Partial("_ErrorList")
+</div>
+<div>
+    @using (Html.BeginForm("EditSchedule", "Schedules", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>EditSchedule</legend>
+
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.UserId)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Date)
+            </div>
+            <div class="editor-field" id="editScheduleDate">
+                @CultureInfo.CurrentCulture.TextInfo.ToTitleCase(String.Format("{0:D}", Model.Date))
+                @Html.HiddenFor(model => model.Date)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TimeLogIn)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TimeLogIn)
+                @Html.ValidationMessageFor(model => model.TimeLogIn)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TimeLogOut)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TimeLogOut)
+                @Html.ValidationMessageFor(model => model.TimeLogOut)
+            </div>
+
+            <p>
+                <input type="hidden" value="@String.Format("{0:MM}{0:yyyy}", Model.Date)" name="ancor" />
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+</div>
+<div>
+    @Html.ActionLink("Retour à la liste", "ConsultUserSchedules", "Schedules", new { id = Model.UserId }, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

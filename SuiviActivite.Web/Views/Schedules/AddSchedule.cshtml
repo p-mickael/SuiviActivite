@@ -1,0 +1,91 @@
+﻿@model SuiviActivite.Web.Models.Schedules.AddSchedule.AddSchedule
+
+@{
+    ViewBag.Title = "Ajouter un suivi";
+    Layout = "_SchedulesLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<div>
+    @Html.Partial("_ErrorList")
+</div>
+<div>
+    @using (Html.BeginForm("AddSchedule", "Schedules", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>AddSchedule</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.UserId, Model.Users, "Choisir un utilisateur")
+                @Html.ValidationMessageFor(model => model.UserId)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateSchedule)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.DateSchedule, new { @class = "datepicker", })
+                @Html.ValidationMessageFor(model => model.DateSchedule)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LogInTime)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LogInTime)
+                @Html.ValidationMessageFor(model => model.LogInTime)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LogOutTime)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LogOutTime)
+                @Html.ValidationMessageFor(model => model.LogOutTime)
+            </div>
+
+            <p>
+                <input type="submit" value="Créer" />
+            </p>
+        </fieldset>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Retour à la liste", "ConsultSchedules", "Schedules", new { id = Model.UserId }, null)
+</div>
+
+@section Styles{
+    @Styles.Render("~/Content/themes/base/jquery-ui.css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/globalize")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.methods.date = function (value, element) {
+                return this.optional(element) ||
+                    Globalize.parseDate(value, "dd/MM/yyyy");
+            }
+
+            $('.datepicker').datepicker();
+
+            //$("form").submit(function()
+            //{
+            //    var result = event.result;
+            //    var message = event.message;
+            //    return false;
+            //})
+        });
+    </script>
+
+}

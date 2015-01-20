@@ -1,0 +1,8 @@
+﻿@model SuiviActivite.Web.Models.Home.Index.IndexUser
+
+@using (Html.BeginForm("LogIn", "Home", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(u => u.Id, new { @Name = "id" })
+    <input @{if(Model.IsLocked) { <text>disabled="disabled"</text> }} type="submit" value="Arrivée" />
+}

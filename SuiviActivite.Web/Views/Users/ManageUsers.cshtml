@@ -1,0 +1,24 @@
+﻿@model SuiviActivite.Web.Models.Users.ManageUsers.ManageUsers
+
+@{
+    ViewBag.Title = "Gestion des utilisateurs";
+    Layout = "_UsersLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<fieldset>
+    <legend>@ViewBag.Title</legend>
+
+    <table class="colored-table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayFor(m => m.Users)
+        </tbody>
+    </table>
+
+</fieldset>

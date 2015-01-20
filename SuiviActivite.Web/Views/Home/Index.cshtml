@@ -1,0 +1,28 @@
+﻿@model SuiviActivite.Web.Models.Home.Index.Index
+
+@{
+    ViewBag.Title = "Accueil";
+}
+@section Styles
+{
+    @Styles.Render("~/Content/homecss")
+}
+
+<fieldset>
+    <table id="homeUserTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayFor(m => m.Users)
+            @*@foreach(var user in Model.Users)
+            {
+                Html.RenderPartial("_IndexUser", user);
+            }*@
+        </tbody>
+    </table>
+</fieldset>

@@ -1,0 +1,38 @@
+﻿@model SuiviActivite.Web.Models.Users.DeleteUsers.DeleteUsers
+
+@{
+    ViewBag.Title = "Suppression d'utilisateur";
+    Layout = "_UsersLayout.cshtml";
+}
+
+<h2>Supprimer des utilisateurs</h2>
+
+@using (Html.BeginForm("DeleteUsers", "Users", FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Supprimer des utilisateurs</legend>
+
+        <table class="alternated-rows">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.EditorFor(m => m.Users)
+            </tbody>
+        </table>
+        
+        <p>
+            <input type="submit" value="Suprimer" data-confirm="Êtes-vous sûr de vouloir supprimer ces utilisateurs ?" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,16 @@
+﻿@model SuiviActivite.Web.Models.Home.Index.IndexUser
+
+<tr class="@(Model.IsWorking ? "logedUser" : "notLogedUser")">
+    <td>@Html.DisplayFor(model => model.LastName)</td>
+    <td>@Html.DisplayFor(model => model.FirstName)</td>
+    <td class="buttonCell">
+        @if(Model.IsWorking)
+        {
+            @Html.Partial("_LogOutForm")
+        }
+        else
+        {
+            @Html.Partial("_LogInForm")
+        }
+    </td>
+</tr>

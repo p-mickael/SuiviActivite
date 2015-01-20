@@ -1,0 +1,15 @@
+﻿@model SuiviActivite.Web.Models.Users.ManageUsers.ManageUsersUser
+
+<tr class="@(Model.IsActive ? (Model.IsLocked ? "LockedUser" : "UnlockedUser") : "InactiveUser")">
+@using (Html.BeginForm("Action", "Users", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id, new { @Name = "id" })
+    
+    <td>@Html.DisplayFor(model => model.LastName)</td>
+    <td>@Html.DisplayFor(model => model.FirstName)</td>
+    <td><input type="submit" name="SwitchActivation" value="@(Model.IsActive ? "Désactiver" : "Activer")" /></td>
+    <td><input type="submit" name="EditUser" value="Editer" /></td>
+    <td><input type="submit" name="SwitchLock" value="@(Model.IsLocked ? "Déverrouiller" : "Verrouiller")"/></td>
+}
+</tr>

@@ -1,0 +1,11 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ConsultUserSchedules.ConsultUserSchedulesMonth
+@using System.Globalization;
+
+<div>
+    <div id="@String.Format("{0:MM}{0:yyyy}", Model.Date)" class="scheduleMonth">
+        <span class="monthTitle"><span class="boldName">@CultureInfo.CurrentCulture.TextInfo.ToTitleCase(String.Format("{0:Y}", Model.Date))</span> - @String.Format("{0}h {1:d2}min", Model.WorkedHours, Model.WorkedMinutes)</span>
+        <ul>
+            @Html.DisplayFor(m => m.Days)
+        </ul>
+    </div>
+</div>

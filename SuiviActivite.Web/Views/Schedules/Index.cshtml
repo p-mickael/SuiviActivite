@@ -1,0 +1,27 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ManageSchedules.Index
+
+@{
+    ViewBag.Title = "Gestion des suivis";
+    Layout = "_SchedulesLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset>
+    <legend>ManageSchedules</legend>
+
+    <table class="alternated-rows colored-table">
+        <thead>
+            <tr>
+                <th>Présent</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Temps travaillé ce mois-ci</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.DisplayFor(m => m.Users)
+        </tbody>
+    </table>
+</fieldset>
+

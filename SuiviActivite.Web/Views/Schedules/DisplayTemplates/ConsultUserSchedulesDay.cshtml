@@ -1,0 +1,20 @@
+﻿@model SuiviActivite.Web.Models.Schedules.ConsultUserSchedules.ConsultUserSchedulesDay
+
+<li class="scheduleDay displayingHoverMenu">
+    <span class="displayingTitle">
+        <span @if (Model.Error) { <text> class="errorText" </text>  }>
+            <span class="boldName">@String.Format("{0:M}", Model.Date)</span> - @String.Format("{0}h{1:d2}min", Model.WorkedHours, Model.WorkedMinutes)
+        </span>
+        </span>
+    <span class="hoverMenu">
+        @using (Html.BeginForm("AddScheduleOnDay", "Schedules", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.Date, new { @Name = "Date" })
+            @Html.HiddenFor(m => m.UserId, new { @Name = "UserId" })
+            <input type="submit" name="AddSchedule" value="Ajouter un suivi" />
+        }
+    </span>
+    <ul class="hiddenList">
+        @Html.DisplayFor(m => m.Schedules)
+    </ul>
+</li>

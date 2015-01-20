@@ -1,0 +1,8 @@
+﻿@model SuiviActivite.Web.Models.Admin.IndexUser
+
+<tr>
+    <td class="@(Model.IsWorking ? "working-user" : "not-working-user")" ></td>
+    <td>@Model.LastName</td>
+    <td>@Model.FirstName</td>
+    <td>@String.Format("{0}h {1:d2}min", Model.ThisMonthWorkedHours, Model.ThisMonthWorkedMinutes)</td>
+</tr>

@@ -1,0 +1,56 @@
+﻿@model SuiviActivite.Web.Models.Configuration.EditConfig
+
+@{
+    ViewBag.Title = "Modifier la configuration";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("EditConfig", "Configuration", FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>EditConfig</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MornginBegin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MornginBegin)
+            @Html.ValidationMessageFor(model => model.MornginBegin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MorningEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MorningEnd)
+            @Html.ValidationMessageFor(model => model.MorningEnd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AfternoonBegin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AfternoonBegin)
+            @Html.ValidationMessageFor(model => model.AfternoonBegin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AfternoonEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AfternoonEnd)
+            @Html.ValidationMessageFor(model => model.AfternoonEnd)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

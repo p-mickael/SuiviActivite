@@ -1,0 +1,10 @@
+﻿@model SuiviActivite.Web.Models.Users.DeleteUsers.DeleteUsersUser
+
+<tr>
+    <td>@Html.DisplayFor(model => model.LastName)</td>
+    <td>@Html.DisplayFor(model => model.FirstName)</td>
+    <td class="CheckBoxContainer">
+        @Html.HiddenFor(model => model.Id)
+        @Html.EditorFor(model => model.ToDelete)
+    </td>
+</tr>

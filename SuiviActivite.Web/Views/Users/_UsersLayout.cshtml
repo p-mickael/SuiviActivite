@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @Styles.Render("~/Content/userscss")
+}
+
+<nav>
+    <ul class="submenu">
+        <li>@Html.ActionMenuLink("Gérer les utilisateurs", "ManageUsers", "Users")</li>
+        <li>@Html.ActionMenuLink("Ajouter un utilisateur", "AddUser", "Users")</li>
+        <li>@Html.ActionMenuLink("Supprimer des utilisateurs", "DeleteUsers", "Users")</li>
+    </ul>
+</nav>
+
+<section>
+    @RenderBody()
+</section>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false);
+}

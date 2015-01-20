@@ -1,0 +1,34 @@
+﻿.LockedUser
+{
+    background-color: coral;
+}
+
+.UnlockedUser
+{
+    background-color: lightgreen;
+}
+
+.InactiveUser
+{
+    background-color: grey;
+}
+
+/* Delete Users Page */
+.CheckBoxContainer {
+    text-align: center;
+}
+
+/* Manage Users Page */
+#SwitchUsersLockForm
+{
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 55%;
+}
+
+#AddUserForm 
+{
+    margin-left: 40px;
+    float: left;
+    width: 40%;
+}

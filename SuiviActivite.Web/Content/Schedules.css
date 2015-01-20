@@ -1,0 +1,106 @@
+﻿.scheduleCell
+{
+    /*background-color : #d0d0d0;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 3px;
+}
+
+.scheduleDay
+{
+    margin-bottom: 3px;
+}
+
+
+
+.scheduleMonth
+{
+    background-color: #fafafa;
+    padding-left: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    min-width: 265px;
+}
+    .scheduleMonth ul
+    {
+        list-style-type: circle;
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+        .scheduleMonth ul ul
+        {
+            margin-top: 2px;
+            list-style-type: none;
+        }
+
+.boldName
+{
+    font-weight: bold;
+}
+
+.underlinedName
+{
+    text-decoration: underline;
+}
+
+.monthTitle
+{
+    font-size: large;
+}
+
+.hoverMenu
+{
+    display: none;
+}
+    .hoverMenu:hover
+    {
+        display: inline;
+    }
+    .hoverMenu form
+    {
+        display: inline;
+    }
+
+    .hoverMenu input 
+    {
+        color: #333;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        text-decoration: underline;
+        font-size: small;
+        background: transparent;
+        display: inline;
+        margin: 0;
+        border: 0;
+        font-weight: normal;
+
+        white-space: normal;
+    }
+        .hoverMenu input:hover
+        {
+            background-color: #c7d1d6;
+        }
+
+#editScheduleDate
+{
+    margin-bottom: 5px;
+    margin-top: 2px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.hiddenList
+{
+    display: none;
+}
+
+.displayingTitle
+{
+    cursor: pointer;
+}
